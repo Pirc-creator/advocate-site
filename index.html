@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Адвокат Роман Олегович</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #000;
+    }
+    header {
+      background: #000;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .hero img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 15px;
+    }
+    .hero-left {
+      flex: 1;
+      text-align: center;
+    }
+    .hero-right {
+      flex: 2;
+      padding: 0 20px;
+    }
+    .hero-right h2 {
+      margin-top: 0;
+    }
+    .button {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 10px 20px;
+      background: #000;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+    }
+    .outline-button {
+      background: none;
+      color: black;
+      border: 2px solid #000;
+    }
+    form {
+      margin-top: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eee;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>Адвокат</strong></div>
+    <nav>
+      <a href="#">Головна</a>
+      <a href="#about">Про мене</a>
+      <a href="#cases">Справи</a>
+      <a href="#contact">Контакти</a>
+    </nav>
+    <div><a href="tel:+380000000000" style="color: #fff;">+38 (000) 000 00 00</a></div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-left">
+      <img src="https://via.placeholder.com/250x300" alt="Фото адвоката">
+      <h2>Роман Олегович</h2>
+    </div>
+    <div class="hero-right">
+      <h2>Юридична допомога, якій довіряють</h2>
+      <a href="tel:+380000000000" class="button">Зателефонувати</a>
+      <a href="#cases" class="button outline-button">Виграних справ, років практики</a>
+      <a href="#about" class="button outline-button">Про мене</a>
+
+      <form>
+        <input type="text" placeholder="Ваше ім'я">
+        <input type="tel" placeholder="Ваш номер телефону">
+        <textarea rows="4" placeholder="Коментар"></textarea>
+        <button class="button" type="submit">Надіслати</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Адвокат Роман Олегович. Усі права захищено.
+  </footer>
+</body>
+</html>
