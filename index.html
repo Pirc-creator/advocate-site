@@ -114,40 +114,38 @@
 </form>
 
 <script>
-  const TOKEN = '7508154894:AAHTjKUGpnaZTj_vu7fANNNL2MdCOyfE87Y'; // ← вставь сюда свой токен
-  const CHAT_ID = '761743415';          // ← вставь свой chat_id (можно получить через @userinfobot)
-  const URL_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
-
-  document.getElementById('tg-form').addEventListener('submit', function(e) {
+  document.getElementById('tg-form').addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    let name = document.getElementById('name').value;
-    let phone = document.getElementById('phone').value;
-    let message = document.getElementById('message').value;
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
 
-    let text = `<b>Нове повідомлення з сайту</b>%0A` +
-               `Ім’я: ${name}%0A` +
-               `Телефон: ${phone}%0A` +
-               `Запитання: ${message}`;
+    try {
+      const response = await fetch('https://ТВОЙ-СЕРВИС.onrender.com/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          phone: phone,
+          message: message
+        })
+      });
 
-    fetch(URL_API, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: `chat_id=${CHAT_ID}&text=${text}&parse_mode=HTML`
-    })
-    .then(res => {
-      if (res.ok) {
+      if (response.ok) {
         alert("Повідомлення надіслано!");
         document.getElementById('tg-form').reset();
       } else {
-        alert("Сталася помилка. Спробуйте пізніше.");
+        alert("Помилка на сервері. Спробуйте пізніше.");
       }
-    })
-    .catch(err => alert("Помилка відправки: " + err));
+    } catch (err) {
+      alert("Помилка підключення до сервера: " + err.message);
+    }
   });
 </script>
+
 
     </div>
   </section>
