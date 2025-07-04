@@ -106,15 +106,16 @@
       <a href="tel:+380673285137" class="button"><b>Зателефонувати</b></a>
       <a href="#about" class="button outline-button">Про мене</a>
 
-      <form>
-        <input type="text" placeholder="Ваше ім'я">
-        <input type="tel" placeholder="Ваш номер телефону">
-        <textarea id="message" rows="4" style="resize: none;" placeholder="Ваше запитання"></textarea>
-        <button class="button" type="submit">Надіслати</button>
-      </form>
-      <script>
-  const TOKEN = 'ТВОЙ_ТЕЛЕГРАМ_БОТ_ТОКЕН';
-  const CHAT_ID = 'ТВОЙ_CHAT_ID';
+      <form id="tg-form">
+  <input type="text" id="name" placeholder="Ваше ім'я" required>
+  <input type="tel" id="phone" placeholder="Ваш номер телефону" required>
+  <textarea id="message" rows="4" style="resize: none;" placeholder="Ваше запитання" required></textarea>
+  <button class="button" type="submit">Надіслати</button>
+</form>
+
+<script>
+  const TOKEN = 'ТВОЙ_ТЕЛЕГРАМ_БОТ_ТОКЕН'; // ← вставь сюда свой токен
+  const CHAT_ID = 'ТВОЙ_CHAT_ID';          // ← вставь свой chat_id (можно получить через @userinfobot)
   const URL_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
   document.getElementById('tg-form').addEventListener('submit', function(e) {
@@ -124,10 +125,10 @@
     let phone = document.getElementById('phone').value;
     let message = document.getElementById('message').value;
 
-    let text = `<b>Нове повідомлення з сайту</b>%0A
- Ім’я: ${name}%0A
- Телефон: ${phone}%0A
- Запитання: ${message}`;
+    let text = `<b>Нове повідомлення з сайту</b>%0A` +
+               `Ім’я: ${name}%0A` +
+               `Телефон: ${phone}%0A` +
+               `Запитання: ${message}`;
 
     fetch(URL_API, {
       method: 'POST',
@@ -143,9 +144,11 @@
       } else {
         alert("Сталася помилка. Спробуйте пізніше.");
       }
-    });
+    })
+    .catch(err => alert("Помилка відправки: " + err));
   });
 </script>
+
     </div>
   </section>
 
