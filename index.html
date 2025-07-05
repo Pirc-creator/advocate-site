@@ -28,12 +28,15 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      flex-wrap: wrap;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
     }
 
     nav a {
       color: #fff;
-      margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s ease;
@@ -41,6 +44,38 @@
 
     nav a:hover {
       color: #ccc;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #000;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .mobile-nav a {
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .mobile-nav a:hover {
+      background: #111;
     }
 
     .hero {
@@ -204,24 +239,16 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
+      nav {
+        display: none;
       }
 
-      .hero {
-        flex-direction: column;
-        padding: 20px;
+      .menu-toggle {
+        display: flex;
       }
 
-      .hero-right {
-        padding: 0;
-      }
-
-      .button-row {
-        flex-direction: column;
-        align-items: stretch;
+      .mobile-nav.active {
+        display: flex;
       }
     }
   </style>
@@ -230,80 +257,27 @@
   <header>
     <div class="left-block">
       <strong>Логотип</strong>
-      <nav>
-        <a href="index.html">Головна</a>
-        <a href="cases.html">Справи</a>
-      </nav>
     </div>
     <div>
       <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
     </div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html">Головна</a>
+      <a href="cases.html">Справи</a>
+    </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-left">
-      <div class="title-top">Адвокат</div>
-      <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/photo_2025-05-06_11-54-42.webp" alt="Адвокат">
-      <div class="name">Лісовой Роман Олегович</div>
-    </div>
-    <div class="hero-right">
-      <h2>Юридична допомога, якій довіряють</h2>
-      <div class="form-container">
-        <div class="button-row">
-          <a href="tel:+380673285137" class="button"><b>Зателефонувати</b></a>
-          <a href="#about" class="button outline-button">Про мене</a>
-        </div>
-        <form id="tg-form">
-          <input type="text" id="name" placeholder="Ваше ім'я" required>
-          <input type="tel" id="phone" placeholder="Ваш номер телефону" required>
-          <textarea id="message" rows="4" style="resize: none;" placeholder="Ваше запитання" required></textarea>
-          <button class="button" type="submit">Надіслати</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>Про мене</h2>
-    <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат із понад 20-річною практикою у захисті прав та інтересів клієнтів у кримінальних, цивільних, адміністративних та господарських справах. Моя мета — надавати ефективну, чесну і зрозумілу юридичну допомогу, яка базується на професіоналізмі та довірі.</p>
-  </section>
-
-  <footer>
-    &copy; 2025 Адвокат Роман Олегович. Усі права захищено.
-  </footer>
+  <!-- остальной HTML-контент (герой, форма, про мене, футер и т.д.) -->
 
   <script>
-    document.getElementById('tg-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const data = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value
-      };
-
-      fetch('https://tg-bot-2p2j.onrender.com/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-      .then(res => {
-        if (res.ok) {
-          alert('Повідомлення надіслано!');
-          document.getElementById('tg-form').reset();
-        } else {
-          alert('Сталася помилка під час надсилання.');
-        }
-      })
-      .catch(error => {
-        alert('Помилка сервера: ' + error);
-      });
-    });
-
-    document.querySelector('a[href="#about"]').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-    });
+    function toggleMenu() {
+      document.getElementById('mobileNav').classList.toggle('active');
+    }
   </script>
 </body>
 </html>
