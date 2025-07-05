@@ -11,6 +11,7 @@
       background: #f9f9f9;
       color: #000;
     }
+
     header {
       background: #000;
       color: #fff;
@@ -18,14 +19,21 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 40px;
     }
+
+    .left-block {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
     nav a {
       color: #fff;
-      margin: 0 15px;
+      margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
     }
+
     .hero {
       display: flex;
       flex-wrap: wrap;
@@ -36,25 +44,37 @@
       border-radius: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
     .hero img {
       width: 100%;
       max-width: 250px;
       border-radius: 15px;
     }
+
     .hero-left {
       flex: 1;
       text-align: center;
     }
+
     .hero-right {
       flex: 2;
       padding: 0 20px;
+      display: flex;
+      flex-direction: column;
     }
+
     .hero-right h2 {
       margin-top: 0;
     }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      margin: 10px 0 20px 0;
+    }
+
     .button {
       display: inline-block;
-      margin: 10px 5px;
       padding: 10px 20px;
       background: #000;
       color: white;
@@ -62,14 +82,17 @@
       border-radius: 5px;
       border: none;
     }
+
     .outline-button {
       background: none;
       color: black;
       border: 2px solid #000;
     }
+
     form {
-      margin-top: 20px;
+      margin-top: 0;
     }
+
     input, textarea {
       width: 100%;
       padding: 10px;
@@ -78,28 +101,41 @@
       border: 1px solid #ccc;
       font-size: 16px;
     }
+
     footer {
       text-align: center;
       padding: 20px;
       background: #eee;
       margin-top: 50px;
     }
+
+    #about {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
- <header>
-  <div style="display: flex; align-items: center; gap: 30px;">
-    <strong>Логотип</strong>
-    <nav>
-      <a href="index.html">Головна</a>
-      <a href="cases.html">Справи</a>
-    </nav>
-  </div>
-  <div><a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a></div>
-</header>
 
+  <!-- ХЕДЕР -->
+  <header>
+    <div class="left-block">
+      <strong>Логотип</strong>
+      <nav>
+        <a href="index.html">Головна</a>
+        <a href="spravy.html">Справи</a>
+      </nav>
+    </div>
+    <div>
+      <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
+    </div>
+  </header>
 
-
+  <!-- ГЕРОЙ-СЕКЦІЯ -->
   <section class="hero">
     <div class="hero-left">
       <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/photo_2025-05-06_11-54-42.webp" alt="Адвокат">
@@ -107,59 +143,60 @@
     </div>
     <div class="hero-right">
       <h2>Юридична допомога, якій довіряють</h2>
-      <a href="tel:+380673285137" class="button"><b>Зателефонувати</b></a>
-      <a href="#about" class="button outline-button">Про мене</a>
+
+      <div class="button-row">
+        <a href="tel:+380673285137" class="button"><b>Зателефонувати</b></a>
+        <a href="#about" class="button outline-button">Про мене</a>
+      </div>
 
       <form id="tg-form">
-  <input type="text" id="name" placeholder="Ваше ім'я" required>
-  <input type="tel" id="phone" placeholder="Ваш номер телефону" required>
-  <textarea id="message" rows="4" style="resize: none;" placeholder="Ваше запитання" required></textarea>
-  <button class="button" type="submit">Надіслати</button>
-</form>
+        <input type="text" id="name" placeholder="Ваше ім'я" required>
+        <input type="tel" id="phone" placeholder="Ваш номер телефону" required>
+        <textarea id="message" rows="4" style="resize: none;" placeholder="Ваше запитання" required></textarea>
+        <button class="button" type="submit">Надіслати</button>
+      </form>
 
-<script>
-  document.getElementById('tg-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+      <script>
+        document.getElementById('tg-form').addEventListener('submit', function(e) {
+          e.preventDefault();
 
-    const data = {
-      name: document.getElementById('name').value,
-      phone: document.getElementById('phone').value,
-      message: document.getElementById('message').value
-    };
+          const data = {
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            message: document.getElementById('message').value
+          };
 
-    fetch('https://tg-bot-2p2j.onrender.com/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    .then(res => {
-      if (res.ok) {
-        alert('Повідомлення надіслано!');
-        document.getElementById('tg-form').reset();
-      } else {
-        alert('Сталася помилка під час надсилання.');
-      }
-    })
-    .catch(error => {
-      alert('Помилка сервера: ' + error);
-    });
-  });
-</script>
-
-
-
+          fetch('https://tg-bot-2p2j.onrender.com/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          })
+          .then(res => {
+            if (res.ok) {
+              alert('Повідомлення надіслано!');
+              document.getElementById('tg-form').reset();
+            } else {
+              alert('Сталася помилка під час надсилання.');
+            }
+          })
+          .catch(error => {
+            alert('Помилка сервера: ' + error);
+          });
+        });
+      </script>
     </div>
   </section>
-  
-  <section id="about" style="max-width: 1000px; margin: 50px auto; padding: 20px; background: #fff; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-  <h2>Про мене</h2>
-  <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат, який понад 20 років захищає права клієнтів у різних правових сферах. Моя мета — надати кожному якісну, чесну та ефективну юридичну допомогу.</p>
-</section>
 
+  <!-- БЛОК ПРО МЕНЕ -->
+  <section id="about">
+    <h2>Про мене</h2>
+    <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат, який понад 20 років захищає права клієнтів у різних правових сферах. Моя мета — надати кожному якісну, чесну та ефективну юридичну допомогу.</p>
+  </section>
+
+  <!-- ФУТЕР -->
   <footer>
     &copy; 2025 Адвокат Роман Олегович. Усі права захищено.
   </footer>
+
 </body>
 </html>
