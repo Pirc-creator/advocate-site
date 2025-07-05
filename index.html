@@ -20,21 +20,20 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       animation: fadeIn 1s ease-in-out;
     }
 
-    .logo {
-      font-weight: bold;
-    }
-
-    nav {
+    .left-block {
       display: flex;
-      gap: 15px;
-      margin-left: 20px;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     nav a {
       color: #fff;
+      margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s ease;
@@ -44,66 +43,154 @@
       color: #ccc;
     }
 
-    .phone {
-      color: #fff;
-      white-space: nowrap;
-      text-align: right;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background: #fff;
-    }
-
-    .mobile-header {
-      display: none;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 50px auto;
       padding: 20px;
-      background: #000;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: slideUp 1s ease-out;
     }
 
-    .mobile-header .logo,
-    .mobile-header .phone,
-    .mobile-header .menu-toggle {
+    .hero-left {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .hero-left .title-top {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .hero-left img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-left img:hover {
+      transform: scale(1.05);
+    }
+
+    .hero-left .name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .hero-right {
+      flex: 1;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 1.4s ease-in-out;
+    }
+
+    .hero-right h2 {
+      margin-top: 0;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 10px 0 20px 0;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #000;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: #333;
+    }
+
+    .outline-button {
+      background: none;
+      color: black;
+      border: 2px solid #000;
+    }
+
+    .outline-button:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    form {
+      margin-top: 0;
+      width: 100%;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #000;
+      outline: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eee;
+      margin-top: 50px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    #about {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 40px 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: slideUp 1s ease-out;
+    }
+
+    #about h2 {
+      margin-top: 0;
+      font-size: 28px;
       text-align: center;
     }
 
-    .mobile-header .logo {
-      text-align: left;
-    }
-
-    .mobile-header .menu-toggle {
-      text-align: right;
-    }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background: #000;
-      padding: 10px;
-    }
-
-    .mobile-menu a {
-      padding: 10px 0;
-      border-bottom: 1px solid #333;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .mobile-menu.open {
-      display: flex;
+    #about p {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     @keyframes fadeIn {
@@ -111,43 +198,47 @@
       100% { opacity: 1; }
     }
 
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 768px) {
       header {
-        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
       }
 
-      .mobile-header {
-        display: flex;
+      .hero {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .hero-right {
+        padding: 0;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: stretch;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div style="display: flex; align-items: center;">
-      <div class="logo">Логотип</div>
+    <div class="left-block">
+      <strong>Логотип</strong>
       <nav>
         <a href="index.html">Головна</a>
         <a href="cases.html">Справи</a>
       </nav>
     </div>
-    <div class="phone">+38 (067) 328 51 37</div>
-  </header>
-
-  <div class="mobile-header">
-    <div class="logo">Логотип</div>
-    <div class="phone">+38 (067) 328 51 37</div>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
+    <div>
+      <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
     </div>
-  </div>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Головна</a>
-    <a href="cases.html">Справи</a>
-  </div>
+  </header>
 
   <section class="hero">
     <div class="hero-left">
@@ -182,10 +273,6 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('open');
-    }
-
     document.getElementById('tg-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
