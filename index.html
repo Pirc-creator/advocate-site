@@ -271,5 +271,39 @@
   <footer>
     &copy; 2025 Адвокат Роман Олегович. Усі права захищено.
   </footer>
+
+  <script>
+    document.getElementById('tg-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value
+      };
+
+      fetch('https://tg-bot-2p2j.onrender.com/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(res => {
+        if (res.ok) {
+          alert('Повідомлення надіслано!');
+          document.getElementById('tg-form').reset();
+        } else {
+          alert('Сталася помилка під час надсилання.');
+        }
+      })
+      .catch(error => {
+        alert('Помилка сервера: ' + error);
+      });
+    });
+
+    document.querySelector('a[href="#about"]').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
