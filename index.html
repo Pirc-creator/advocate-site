@@ -31,6 +31,10 @@
       flex-wrap: wrap;
     }
 
+    nav {
+      display: flex;
+    }
+
     nav a {
       color: #fff;
       margin: 0 10px;
@@ -41,6 +45,26 @@
 
     nav a:hover {
       color: #ccc;
+    }
+
+    .burger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #000;
+      width: 100%;
+    }
+
+    .mobile-nav a {
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-top: 1px solid #222;
     }
 
     .hero {
@@ -204,24 +228,17 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
+      nav {
+        display: none;
       }
 
-      .hero {
-        flex-direction: column;
-        padding: 20px;
+      .burger {
+        display: block;
+        color: #fff;
       }
 
-      .hero-right {
-        padding: 0;
-      }
-
-      .button-row {
-        flex-direction: column;
-        align-items: stretch;
+      .mobile-nav.show {
+        display: flex;
       }
     }
   </style>
@@ -230,14 +247,19 @@
   <header>
     <div class="left-block">
       <strong>Логотип</strong>
-      <nav>
-        <a href="index.html">Головна</a>
-        <a href="cases.html">Справи</a>
-      </nav>
     </div>
-    <div>
-      <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
+    <div class="right-block">
+      <a href="tel:+380673285137" class="phone-link" style="color: #fff;">+38 (067) 328 51 37</a>
+      <div class="burger" id="burger">&#9776;</div>
     </div>
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="cases.html">Справи</a>
+    </nav>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html">Головна</a>
+      <a href="cases.html">Справи</a>
+    </nav>
   </header>
 
   <section class="hero">
@@ -275,13 +297,11 @@
   <script>
     document.getElementById('tg-form').addEventListener('submit', function(e) {
       e.preventDefault();
-
       const data = {
         name: document.getElementById('name').value,
         phone: document.getElementById('phone').value,
         message: document.getElementById('message').value
       };
-
       fetch('https://tg-bot-2p2j.onrender.com/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -303,6 +323,13 @@
     document.querySelector('a[href="#about"]').addEventListener('click', function(e) {
       e.preventDefault();
       document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    const burger = document.getElementById('burger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    burger.addEventListener('click', () => {
+      mobileNav.classList.toggle('show');
     });
   </script>
 </body>
