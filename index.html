@@ -67,6 +67,13 @@
       margin-top: 0;
     }
 
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+
     .button-row {
       display: flex;
       gap: 10px;
@@ -91,6 +98,7 @@
 
     form {
       margin-top: 0;
+      width: 100%;
     }
 
     input, textarea {
@@ -107,15 +115,6 @@
       padding: 20px;
       background: #eee;
       margin-top: 50px;
-    }
-
-    #about {
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
   </style>
 </head>
@@ -144,17 +143,19 @@
     <div class="hero-right">
       <h2>Юридична допомога, якій довіряють</h2>
 
-      <div class="button-row">
-        <a href="tel:+380673285137" class="button"><b>Зателефонувати</b></a>
-        <a href="#about" class="button outline-button">Про мене</a>
-      </div>
+      <div class="form-container">
+        <div class="button-row">
+          <a href="tel:+380673285137" class="button"><b>Зателефонувати</b></a>
+          <a href="#about" class="button outline-button">Про мене</a>
+        </div>
 
-      <form id="tg-form">
-        <input type="text" id="name" placeholder="Ваше ім'я" required>
-        <input type="tel" id="phone" placeholder="Ваш номер телефону" required>
-        <textarea id="message" rows="4" style="resize: none;" placeholder="Ваше запитання" required></textarea>
-        <button class="button" type="submit">Надіслати</button>
-      </form>
+        <form id="tg-form">
+          <input type="text" id="name" placeholder="Ваше ім'я" required>
+          <input type="tel" id="phone" placeholder="Ваш номер телефону" required>
+          <textarea id="message" rows="4" style="resize: none;" placeholder="Ваше запитання" required></textarea>
+          <button class="button" type="submit">Надіслати</button>
+        </form>
+      </div>
 
       <script>
         document.getElementById('tg-form').addEventListener('submit', function(e) {
@@ -187,10 +188,17 @@
     </div>
   </section>
 
-  <!-- БЛОК ПРО МЕНЕ -->
+  <!-- БЛОК ПРО МЕНЕ (такий самий як верхній) -->
   <section id="about">
-    <h2>Про мене</h2>
-    <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат, який понад 20 років захищає права клієнтів у різних правових сферах. Моя мета — надати кожному якісну, чесну та ефективну юридичну допомогу.</p>
+    <div class="hero">
+      <div class="hero-left">
+        <!-- Можна додати фото або залишити пустим -->
+      </div>
+      <div class="hero-right">
+        <h2>Про мене</h2>
+        <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат, який понад 20 років захищає права клієнтів у різних правових сферах. Моя мета — надати кожному якісну, чесну та ефективну юридичну допомогу.</p>
+      </div>
+    </div>
   </section>
 
   <!-- ФУТЕР -->
