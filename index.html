@@ -7,8 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <style>
     html {
-  scroll-behavior: smooth;
-}
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -302,11 +302,6 @@
       .catch(error => {
         alert('Помилка сервера: ' + error);
       });
-    });
-
-    document.querySelector('a[href="#about"]').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
     });
   </script>
 </body>
