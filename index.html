@@ -16,44 +16,85 @@
     header {
       background: #000;
       color: #fff;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .header-left {
       display: flex;
       align-items: center;
-      gap: 20px;
+      flex-grow: 1;
     }
 
-    .header-nav {
+    .logo {
+      font-weight: bold;
+      margin-right: 20px;
+    }
+
+    nav {
       display: flex;
       gap: 15px;
     }
 
-    .header-nav a {
+    nav a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ccc;
     }
 
     .phone {
-      margin-left: auto;
-      color: #fff;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background: #fff;
     }
 
     .mobile-header {
       display: none;
-      width: 100%;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      padding: 20px;
+      background: #000;
     }
 
-    .burger {
-      font-size: 24px;
-      cursor: pointer;
+    .mobile-header .logo,
+    .mobile-header .phone,
+    .mobile-header .menu-toggle {
+      flex: 1;
+    }
+
+    .mobile-header .logo {
+      text-align: left;
+    }
+
+    .mobile-header .phone {
+      text-align: center;
+    }
+
+    .mobile-header .menu-toggle {
+      text-align: right;
+      display: flex;
+      justify-content: flex-end;
     }
 
     .mobile-menu {
@@ -64,18 +105,24 @@
     }
 
     .mobile-menu a {
-      color: white;
       padding: 10px 0;
+      border-bottom: 1px solid #333;
+      color: #fff;
       text-decoration: none;
+      font-weight: bold;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
     @media (max-width: 768px) {
       header {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .header-left, .header-nav, .phone {
         display: none;
       }
 
@@ -88,32 +135,37 @@
 <body>
   <header>
     <div class="header-left">
-      <strong>Логотип</strong>
-      <div class="header-nav">
+      <div class="logo">Логотип</div>
+      <nav>
         <a href="index.html">Головна</a>
         <a href="cases.html">Справи</a>
-      </div>
+      </nav>
     </div>
     <div class="phone">
-      <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
-    </div>
-    <div class="mobile-header">
-      <strong>Логотип</strong>
-      <a href="tel:+380673285137" style="color: #fff; text-align: center;">+38 (067) 328 51 37</a>
-      <div class="burger" onclick="toggleMenu()">&#9776;</div>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="index.html">Головна</a>
-      <a href="cases.html">Справи</a>
+      <a href="tel:+380673285137" style="color: #fff; text-decoration: none;">+38 (067) 328 51 37</a>
     </div>
   </header>
 
-  <!-- Остальной контент страницы без изменений -->
+  <div class="mobile-header">
+    <div class="logo">Логотип</div>
+    <div class="phone">
+      <a href="tel:+380673285137" style="color: #fff; text-decoration: none;">+38 (067) 328 51 37</a>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Головна</a>
+    <a href="cases.html">Справи</a>
+  </div>
 
   <script>
     function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+      document.getElementById('mobileMenu').classList.toggle('open');
     }
   </script>
 </body>
