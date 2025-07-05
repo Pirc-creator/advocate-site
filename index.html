@@ -23,20 +23,14 @@
       animation: fadeIn 1s ease-in-out;
     }
 
-    .header-left {
-      display: flex;
-      align-items: center;
-      flex-grow: 1;
-    }
-
     .logo {
       font-weight: bold;
-      margin-right: 20px;
     }
 
     nav {
       display: flex;
       gap: 15px;
+      margin-left: 20px;
     }
 
     nav a {
@@ -51,6 +45,7 @@
     }
 
     .phone {
+      color: #fff;
       white-space: nowrap;
       text-align: right;
     }
@@ -81,20 +76,15 @@
     .mobile-header .phone,
     .mobile-header .menu-toggle {
       flex: 1;
+      text-align: center;
     }
 
     .mobile-header .logo {
       text-align: left;
     }
 
-    .mobile-header .phone {
-      text-align: center;
-    }
-
     .mobile-header .menu-toggle {
       text-align: right;
-      display: flex;
-      justify-content: flex-end;
     }
 
     .mobile-menu {
@@ -134,23 +124,19 @@
 </head>
 <body>
   <header>
-    <div class="header-left">
+    <div style="display: flex; align-items: center;">
       <div class="logo">Логотип</div>
       <nav>
         <a href="index.html">Головна</a>
         <a href="cases.html">Справи</a>
       </nav>
     </div>
-    <div class="phone">
-      <a href="tel:+380673285137" style="color: #fff; text-decoration: none;">+38 (067) 328 51 37</a>
-    </div>
+    <div class="phone">+38 (067) 328 51 37</div>
   </header>
 
   <div class="mobile-header">
     <div class="logo">Логотип</div>
-    <div class="phone">
-      <a href="tel:+380673285137" style="color: #fff; text-decoration: none;">+38 (067) 328 51 37</a>
-    </div>
+    <div class="phone">+38 (067) 328 51 37</div>
     <div class="menu-toggle" onclick="toggleMenu()">
       <div></div>
       <div></div>
@@ -163,10 +149,74 @@
     <a href="cases.html">Справи</a>
   </div>
 
+  <section class="hero">
+    <div class="hero-left">
+      <div class="title-top">Адвокат</div>
+      <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/photo_2025-05-06_11-54-42.webp" alt="Адвокат">
+      <div class="name">Лісовой Роман Олегович</div>
+    </div>
+    <div class="hero-right">
+      <h2>Юридична допомога, якій довіряють</h2>
+      <div class="form-container">
+        <div class="button-row">
+          <a href="tel:+380673285137" class="button"><b>Зателефонувати</b></a>
+          <a href="#about" class="button outline-button">Про мене</a>
+        </div>
+        <form id="tg-form">
+          <input type="text" id="name" placeholder="Ваше ім'я" required>
+          <input type="tel" id="phone" placeholder="Ваш номер телефону" required>
+          <textarea id="message" rows="4" style="resize: none;" placeholder="Ваше запитання" required></textarea>
+          <button class="button" type="submit">Надіслати</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>Про мене</h2>
+    <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат із понад 20-річною практикою у захисті прав та інтересів клієнтів у кримінальних, цивільних, адміністративних та господарських справах. Моя мета — надавати ефективну, чесну і зрозумілу юридичну допомогу, яка базується на професіоналізмі та довірі.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Адвокат Роман Олегович. Усі права захищено.
+  </footer>
+
   <script>
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
     }
+
+    document.getElementById('tg-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value
+      };
+
+      fetch('https://tg-bot-2p2j.onrender.com/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(res => {
+        if (res.ok) {
+          alert('Повідомлення надіслано!');
+          document.getElementById('tg-form').reset();
+        } else {
+          alert('Сталася помилка під час надсилання.');
+        }
+      })
+      .catch(error => {
+        alert('Помилка сервера: ' + error);
+      });
+    });
+
+    document.querySelector('a[href="#about"]').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    });
   </script>
 </body>
 </html>
