@@ -11,26 +11,29 @@
       background: #f9f9f9;
       color: #000;
     }
+
+    /* Header styles */
     header {
       background: #000;
       color: #fff;
-      text-align: center;
-      padding: 20px;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    nav {
+      padding: 20px 40px;
       display: flex;
-      justify-content: center;
-      background: #111;
-      padding: 10px 0;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .left-group {
+      display: flex;
+      align-items: center;
+      gap: 30px;
     }
     nav a {
       color: #fff;
+      margin: 0 10px;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: bold;
     }
+
+    /* Main block */
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -97,17 +100,21 @@
 </head>
 <body>
 
+  <!-- Ідентичний header як у index.html -->
   <header>
-  <div style="display: flex; align-items: center; gap: 30px;">
-    <strong>Логотип</strong>
-    <nav>
-      <a href="index.html">Головна</a>
-      <a href="cases.html">Справи</a>
-    </nav>
-  </div>
-  <div><a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a></div>
-</header>
+    <div class="left-group">
+      <strong>Логотип</strong>
+      <nav>
+        <a href="index.html">Головна</a>
+        <a href="spravy.html">Справи</a>
+      </nav>
+    </div>
+    <div>
+      <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
+    </div>
+  </header>
 
+  <!-- Основна частина -->
   <section class="container">
     <div class="photo">
       <img src="https://via.placeholder.com/400x400.png?text=Тематичне+фото" alt="Тематичне фото">
