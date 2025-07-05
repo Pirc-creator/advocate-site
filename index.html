@@ -47,13 +47,22 @@
 
     .hero img {
       width: 100%;
-      max-width: 250px;
+      max-width: 300px;
       border-radius: 15px;
     }
 
     .hero-left {
       flex: 1;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .hero-left h2 {
+      margin-top: 15px;
+      font-size: 20px;
     }
 
     .hero-right {
@@ -70,7 +79,7 @@
     .form-container {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: stretch;
       width: 100%;
     }
 
@@ -116,11 +125,53 @@
       background: #eee;
       margin-top: 50px;
     }
+
+    /* ПРО МЕНЕ */
+    #about {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    #about .about-left {
+      flex: 1;
+      min-width: 250px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #about .about-left img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 15px;
+    }
+
+    #about .about-right {
+      flex: 2;
+    }
+
+    #about h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    #about p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
 
-  <!-- ХЕДЕР -->
   <header>
     <div class="left-block">
       <strong>Логотип</strong>
@@ -134,7 +185,6 @@
     </div>
   </header>
 
-  <!-- ГЕРОЙ-СЕКЦІЯ -->
   <section class="hero">
     <div class="hero-left">
       <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/photo_2025-05-06_11-54-42.webp" alt="Адвокат">
@@ -188,20 +238,16 @@
     </div>
   </section>
 
-  <!-- БЛОК ПРО МЕНЕ (такий самий як верхній) -->
   <section id="about">
-    <div class="hero">
-      <div class="hero-left">
-        <!-- Можна додати фото або залишити пустим -->
-      </div>
-      <div class="hero-right">
-        <h2>Про мене</h2>
-        <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат, який понад 20 років захищає права клієнтів у різних правових сферах. Моя мета — надати кожному якісну, чесну та ефективну юридичну допомогу.</p>
-      </div>
+    <div class="about-left">
+      <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/photo_2025-05-06_11-54-42.webp" alt="Адвокат">
+    </div>
+    <div class="about-right">
+      <h2>Про мене</h2>
+      <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат, який понад 20 років захищає права клієнтів у різних правових сферах. Моє завдання — надати кожному клієнту якісну, чесну та ефективну юридичну допомогу, базуючись на досвіді, прозорості та довірі.</p>
     </div>
   </section>
 
-  <!-- ФУТЕР -->
   <footer>
     &copy; 2025 Адвокат Роман Олегович. Усі права захищено.
   </footer>
