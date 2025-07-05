@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Адвокат Роман Олегович</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Fira Sans Condensed', sans-serif;
       background: #f9f9f9;
       color: #000;
     }
@@ -15,16 +16,18 @@
     header {
       background: #000;
       color: #fff;
-      padding: 20px 40px;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .left-block {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -50,10 +53,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-bottom: 20px;
     }
 
     .hero-left .title-top {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: bold;
       margin-bottom: 10px;
     }
@@ -65,15 +69,15 @@
     }
 
     .hero-left .name {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
       margin-top: 10px;
-      max-width: 300px;
       text-align: center;
+      width: 100%;
     }
 
     .hero-right {
-      flex: 2;
+      flex: 1;
       padding: 0 20px;
       display: flex;
       flex-direction: column;
@@ -93,6 +97,7 @@
     .button-row {
       display: flex;
       gap: 10px;
+      flex-wrap: wrap;
       margin: 10px 0 20px 0;
     }
 
@@ -133,35 +138,53 @@
       margin-top: 50px;
     }
 
-    /* ПРО МЕНЕ */
     #about {
       max-width: 1200px;
       margin: 50px auto;
-      padding: 20px;
+      padding: 40px 20px;
       background: #fff;
       border-radius: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    #about .about-content {
-      padding: 0 20px;
-    }
-
     #about h2 {
       margin-top: 0;
-      font-size: 24px;
+      font-size: 28px;
+      text-align: center;
     }
 
     #about p {
       font-size: 18px;
       line-height: 1.6;
-      max-width: 100%;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      .hero {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .hero-right {
+        padding: 0;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- ХЕДЕР -->
   <header>
     <div class="left-block">
       <strong>Логотип</strong>
@@ -175,7 +198,6 @@
     </div>
   </header>
 
-  <!-- ГЕРОЙ-СЕКЦІЯ -->
   <section class="hero">
     <div class="hero-left">
       <div class="title-top">Адвокат</div>
@@ -184,13 +206,11 @@
     </div>
     <div class="hero-right">
       <h2>Юридична допомога, якій довіряють</h2>
-
       <div class="form-container">
         <div class="button-row">
           <a href="tel:+380673285137" class="button"><b>Зателефонувати</b></a>
           <a href="#about" class="button outline-button">Про мене</a>
         </div>
-
         <form id="tg-form">
           <input type="text" id="name" placeholder="Ваше ім'я" required>
           <input type="tel" id="phone" placeholder="Ваш номер телефону" required>
@@ -198,50 +218,16 @@
           <button class="button" type="submit">Надіслати</button>
         </form>
       </div>
-
-      <script>
-        document.getElementById('tg-form').addEventListener('submit', function(e) {
-          e.preventDefault();
-
-          const data = {
-            name: document.getElementById('name').value,
-            phone: document.getElementById('phone').value,
-            message: document.getElementById('message').value
-          };
-
-          fetch('https://tg-bot-2p2j.onrender.com/send', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          })
-          .then(res => {
-            if (res.ok) {
-              alert('Повідомлення надіслано!');
-              document.getElementById('tg-form').reset();
-            } else {
-              alert('Сталася помилка під час надсилання.');
-            }
-          })
-          .catch(error => {
-            alert('Помилка сервера: ' + error);
-          });
-        });
-      </script>
     </div>
   </section>
 
-  <!-- ПРО МЕНЕ -->
   <section id="about">
-    <div class="about-content">
-      <h2>Про мене</h2>
-      <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат із понад 20-річною практикою у захисті прав та інтересів клієнтів у кримінальних, цивільних, адміністративних та господарських справах. Моя мета — надавати ефективну, чесну і зрозумілу юридичну допомогу, яка базується на професіоналізмі та довірі.</p>
-    </div>
+    <h2>Про мене</h2>
+    <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат із понад 20-річною практикою у захисті прав та інтересів клієнтів у кримінальних, цивільних, адміністративних та господарських справах. Моя мета — надавати ефективну, чесну і зрозумілу юридичну допомогу, яка базується на професіоналізмі та довірі.</p>
   </section>
 
-  <!-- ФУТЕР -->
   <footer>
     &copy; 2025 Адвокат Роман Олегович. Усі права захищено.
   </footer>
-
 </body>
 </html>
