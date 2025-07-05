@@ -20,260 +20,128 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       animation: fadeIn 1s ease-in-out;
-      position: relative;
     }
 
-    .left-block {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    .logo {
+      font-weight: bold;
     }
 
-    nav {
+    .phone {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .menu {
       display: flex;
       gap: 15px;
     }
 
-    nav a {
+    .menu a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #ccc;
     }
 
     .burger {
       display: none;
-      flex-direction: column;
-      gap: 5px;
+      font-size: 24px;
       cursor: pointer;
     }
 
-    .burger div {
-      width: 25px;
-      height: 3px;
-      background: white;
-    }
-
-    .mobile-nav {
+    .mobile-menu {
       display: none;
       flex-direction: column;
-      gap: 10px;
       background: #000;
       padding: 10px;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      z-index: 100;
     }
 
-    .mobile-nav a {
+    .mobile-menu a {
       color: white;
+      padding: 10px 0;
       text-decoration: none;
-      font-weight: bold;
+      border-bottom: 1px solid #333;
     }
 
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      animation: slideUp 1s ease-out;
-    }
-
-    .hero-left {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 20px;
-      animation: fadeIn 1.2s ease-in-out;
-    }
-
-    .hero-left .title-top {
-      font-size: 28px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .hero-left img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .hero-left img:hover {
-      transform: scale(1.05);
-    }
-
-    .hero-left .name {
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: 10px;
-      text-align: center;
-      width: 100%;
-    }
-
-    .hero-right {
-      flex: 1;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      animation: fadeIn 1.4s ease-in-out;
-    }
-
-    .hero-right h2 {
-      margin-top: 0;
-    }
-
-    .form-container {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      width: 100%;
-    }
-
-    .button-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin: 10px 0 20px 0;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #000;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      border: none;
-      transition: background 0.3s ease;
-    }
-
-    .button:hover {
-      background: #333;
-    }
-
-    .outline-button {
-      background: none;
-      color: black;
-      border: 2px solid #000;
-    }
-
-    .outline-button:hover {
-      background: #000;
-      color: #fff;
-    }
-
-    form {
-      margin-top: 0;
-      width: 100%;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      transition: border 0.3s ease;
-    }
-
-    input:focus, textarea:focus {
-      border-color: #000;
-      outline: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #eee;
-      margin-top: 50px;
-      animation: fadeIn 2s ease-in;
-    }
-
-    #about {
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 40px 20px;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      animation: slideUp 1s ease-out;
-    }
-
-    #about h2 {
-      margin-top: 0;
-      font-size: 28px;
-      text-align: center;
-    }
-
-    #about p {
-      font-size: 18px;
-      line-height: 1.6;
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
+    .hero, #about, footer {
+      display: block;
     }
 
     @media (max-width: 768px) {
       header {
+        flex-wrap: wrap;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
       }
-      nav {
+
+      .menu {
         display: none;
       }
+
       .burger {
+        display: block;
+        color: white;
+      }
+
+      .mobile-menu.show {
         display: flex;
       }
-      .mobile-nav {
-        display: flex;
-      }
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <header>
-    <strong>Логотип</strong>
-    <a href="tel:+380673285137" style="color: #fff; text-decoration: underline;">+38 (067) 328 51 37</a>
-    <div class="burger" onclick="document.querySelector('.mobile-nav').classList.toggle('open')">
-      <div></div><div></div><div></div>
-    </div>
-    <nav>
+    <div class="logo">Логотип</div>
+    <a href="tel:+380673285137" class="phone">+38 (067) 328 51 37</a>
+    <div class="burger" onclick="toggleMenu()">&#9776;</div>
+    <nav class="menu">
       <a href="index.html">Головна</a>
       <a href="cases.html">Справи</a>
     </nav>
-    <div class="mobile-nav" style="display:none">
-      <a href="index.html">Головна</a>
-      <a href="cases.html">Справи</a>
-    </div>
   </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Головна</a>
+    <a href="cases.html">Справи</a>
+  </div>
 
-  <!-- остальной код без изменений -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="title-top">Адвокат</div>
+      <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/photo_2025-05-06_11-54-42.webp" alt="Адвокат">
+      <div class="name">Лісовой Роман Олегович</div>
+    </div>
+    <div class="hero-right">
+      <h2>Юридична допомога, якій довіряють</h2>
+      <div class="form-container">
+        <div class="button-row">
+          <a href="tel:+380673285137" class="button"><b>Зателефонувати</b></a>
+          <a href="#about" class="button outline-button">Про мене</a>
+        </div>
+        <form id="tg-form">
+          <input type="text" id="name" placeholder="Ваше ім'я" required>
+          <input type="tel" id="phone" placeholder="Ваш номер телефону" required>
+          <textarea id="message" rows="4" style="resize: none;" placeholder="Ваше запитання" required></textarea>
+          <button class="button" type="submit">Надіслати</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
+  <section id="about">
+    <h2>Про мене</h2>
+    <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат із понад 20-річною практикою у захисті прав та інтересів клієнтів у кримінальних, цивільних, адміністративних та господарських справах. Моя мета — надавати ефективну, чесну і зрозумілу юридичну допомогу, яка базується на професіоналізмі та довірі.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Адвокат Роман Олегович. Усі права захищено.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
