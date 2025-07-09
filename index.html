@@ -25,57 +25,88 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      position: relative;
     }
 
-    .left-block {
+    .header-content {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      width: 100%;
+    }
+
+    .logo {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .phone {
+      color: #fff;
     }
 
     .burger {
       display: none;
       flex-direction: column;
       cursor: pointer;
-      position: absolute;
-      right: 20px;
-      top: 20px;
+      gap: 5px;
     }
 
     .burger div {
       width: 25px;
       height: 3px;
-      background-color: #fff;
-      margin: 4px 0;
+      background-color: white;
     }
 
-    .mobile-nav {
+    .mobile-menu {
       display: none;
       flex-direction: column;
       background: #000;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      z-index: 1000;
-    }
-
-    .mobile-nav a {
-      color: #fff;
       padding: 10px;
+    }
+
+    .mobile-menu a {
+      color: white;
+      padding: 5px 0;
       text-decoration: none;
     }
 
-    nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-    nav a:hover {
-      color: #ccc;
+      nav {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      .phone {
+        text-align: center;
+        flex: 1;
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .mobile-menu.active {
+        display: flex;
+      }
     }
 
     .hero {
@@ -114,7 +145,6 @@
       font-weight: bold;
       margin-top: 10px;
       text-align: center;
-      width: 100%;
     }
 
     .hero-right {
@@ -127,8 +157,6 @@
     .form-container {
       display: flex;
       flex-direction: column;
-      align-items: stretch;
-      width: 100%;
     }
 
     .button-row {
@@ -139,7 +167,6 @@
     }
 
     .button {
-      display: inline-block;
       padding: 10px 20px;
       background: #000;
       color: white;
@@ -154,18 +181,12 @@
       border: 2px solid #000;
     }
 
-    form {
-      margin-top: 0;
-      width: 100%;
-    }
-
     input, textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
       border-radius: 5px;
       border: 1px solid #ccc;
-      font-size: 16px;
     }
 
     footer {
@@ -174,57 +195,35 @@
       background: #eee;
       margin-top: 50px;
     }
-
-    #about {
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 40px 20px;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-      }
-
-      .burger {
-        display: flex;
-      }
-
-      .mobile-nav.show {
-        display: flex;
-      }
-
-      header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .hero {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
   </style>
 </head>
 <body>
   <header>
-    <strong>Логотип</strong>
-    <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
-    <div class="burger" onclick="document.querySelector('.mobile-nav').classList.toggle('show')">
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="header-content">
+      <div class="logo">Логотип</div>
+
+      <div class="phone"><a href="tel:+380673285137" style="color: #fff; text-decoration: none;">+38 (067) 328 51 37</a></div>
+
+      <div class="burger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-    <div class="mobile-nav">
+
+    <nav class="mobile-menu" id="mobileMenu">
       <a href="index.html">Головна</a>
       <a href="military.html">Військове Право</a>
       <a href="divorce.html">Розлучення</a>
       <a href="real_estate.html">Житлові Питання</a>
-    </div>
+    </nav>
+
+    <nav class="desktop-menu">
+      <a href="index.html">Головна</a>
+      <a href="military.html">Військове Право</a>
+      <a href="divorce.html">Розлучення</a>
+      <a href="real_estate.html">Житлові Питання</a>
+    </nav>
   </header>
 
   <section class="hero">
@@ -252,7 +251,7 @@
 
   <section id="about">
     <h2>Про мене</h2>
-    <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат із понад 20-річною практикою у захисті прав та інтересів клієнтів у кримінальних, цивільних, адміністративних та господарських справах. Моя мета — надавати ефективну, чесну і зрозумілу юридичну допомогу, яка базується на професіоналізмі та довірі.</p>
+    <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат із понад 20-річною практикою у захисті прав та інтересів клієнтів у кримінальних, цивільних, адміністративних та господарських справах.</p>
   </section>
 
   <footer>
@@ -260,6 +259,10 @@
   </footer>
 
   <script>
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("active");
+    }
+
     document.getElementById('tg-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
