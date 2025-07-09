@@ -16,46 +16,44 @@
     header {
       background: #000;
       color: #fff;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
       flex-wrap: wrap;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .left-block {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
     nav {
       display: flex;
       gap: 10px;
-      flex-wrap: wrap;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
-    .right-block a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
+    nav a:hover {
+      color: #ccc;
     }
 
     .burger {
       display: none;
       font-size: 24px;
+      cursor: pointer;
       background: none;
       border: none;
       color: #fff;
-      cursor: pointer;
     }
 
     .mobile-header {
@@ -163,6 +161,11 @@
     }
 
     @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
       .left-block, nav, header > div:not(.mobile-header):not(.mobile-nav) {
         display: none;
       }
@@ -195,6 +198,11 @@
         padding: 14px 16px;
       }
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -216,8 +224,8 @@
       </nav>
     </div>
 
-    <div class="right-block">
-      <a href="tel:+380673285137">+38 (067) 328 51 37</a>
+    <div>
+      <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
     </div>
 
     <div class="mobile-nav" id="mobileNav">
@@ -240,7 +248,8 @@
         <a href="tel:+380673285137" class="button"><b>Терміновий виклик адвоката<br>+38 (067) 328 51 37</b></a>
       </div>
       <div class="text-block">
-        Адвокат по питаннях нерухомості допоможе вирішити складні житлові спори, надати правову підтримку у питаннях купівлі-продажу квартири, оскарження угод з нерухомістю, оформлення документів на власність, а також при залитті квартири чи виселенні. Консультація адвоката по житлових питаннях — це надійна юридична підтримка у будь-якій ситуації
+        Адвокат по питаннях нерухомості допоможе вирішити складні житлові спори, надати правову підтримку у питаннях купівлі-продажу квартири, оскарження угод з нерухомістю, оформлення документів на власність, а також при залитті квартири чи виселенні. Консультація адвоката по житлових питаннях — це надійна юридична підтримка у будь-якій ситуації.
+      </div>
     </div>
   </section>
 
