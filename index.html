@@ -6,17 +6,13 @@
   <title>Адвокат Роман Олегович</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Fira Sans Condensed', sans-serif;
       background: #f9f9f9;
       color: #000;
     }
-
     header {
       background: #000;
       color: #fff;
@@ -25,16 +21,14 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      animation: fadeIn 1s ease-in-out;
+      position: relative;
     }
-
     .left-block {
       display: flex;
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
     }
-
     nav a {
       color: #fff;
       margin: 0 10px;
@@ -42,7 +36,6 @@
       font-weight: bold;
       transition: color 0.3s ease;
     }
-
     nav a:hover {
       color: #ccc;
     }
@@ -56,7 +49,6 @@
       background: #fff;
       border-radius: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      animation: slideUp 1s ease-out;
     }
 
     .hero-left {
@@ -65,7 +57,6 @@
       flex-direction: column;
       align-items: center;
       margin-bottom: 20px;
-      animation: fadeIn 1.2s ease-in-out;
     }
 
     .hero-left .title-top {
@@ -98,7 +89,6 @@
       padding: 0 20px;
       display: flex;
       flex-direction: column;
-      animation: fadeIn 1.4s ease-in-out;
     }
 
     .hero-right h2 {
@@ -170,7 +160,6 @@
       padding: 20px;
       background: #eee;
       margin-top: 50px;
-      animation: fadeIn 2s ease-in;
     }
 
     #about {
@@ -180,7 +169,6 @@
       background: #fff;
       border-radius: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      animation: slideUp 1s ease-out;
     }
 
     #about h2 {
@@ -197,35 +185,30 @@
       margin: 0 auto;
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+    .phone {
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: bold;
     }
 
-    @keyframes slideUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+    .burger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
+      nav { display: none; }
+
+      .phone {
+        display: block;
       }
 
-      .hero {
-        flex-direction: column;
-        padding: 20px;
-      }
-
-      .hero-right {
-        padding: 0;
-      }
-
-      .button-row {
-        flex-direction: column;
-        align-items: stretch;
+      .burger {
+        display: block;
+        color: white;
       }
     }
   </style>
@@ -234,16 +217,20 @@
   <header>
     <div class="left-block">
       <strong>Логотип</strong>
-      <nav>
-        <a href="index.html">Головна</a>
-        <a href="military.html">Військове Право</a>
-        <a href="divorce.html">Розлучення</a>
-        <a href="real_estate.html">Житлові Питання</a>
-      </nav>
     </div>
-    <div>
+
+    <div class="phone">
       <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
     </div>
+
+    <div class="burger">&#9776;</div>
+
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="military.html">Військове Право</a>
+      <a href="divorce.html">Розлучення</a>
+      <a href="real_estate.html">Житлові Питання</a>
+    </nav>
   </header>
 
   <section class="hero">
