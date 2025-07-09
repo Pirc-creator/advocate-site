@@ -136,7 +136,7 @@
       margin-bottom: 20px;
     }
 
-    /* Стилі для десктопної версії */
+    /* Десктоп */
     .button {
       display: inline-block;
       background: #000;
@@ -163,7 +163,7 @@
       margin-top: 50px;
     }
 
-    /* Стилі для мобільної версії */
+    /* Мобільна версія */
     @media (max-width: 768px) {
       .left-block, nav, header > div:not(.mobile-header):not(.mobile-nav) {
         display: none;
@@ -183,6 +183,7 @@
 
       .container {
         flex-direction: column;
+        padding: 20px;
       }
 
       .photo {
@@ -193,7 +194,8 @@
       .button {
         width: 100%;
         min-width: unset;
-        margin-bottom: 10px; /* Зменшуємо відступ */
+        box-sizing: border-box;
+        padding: 14px 16px;
       }
     }
   </style>
