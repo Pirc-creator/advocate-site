@@ -2,13 +2,14 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Адвокат Роман Олегович</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <style>
     html {
       scroll-behavior: smooth;
     }
+
     body {
       margin: 0;
       font-family: 'Fira Sans Condensed', sans-serif;
@@ -48,6 +49,10 @@
 
     nav a:hover {
       color: #ccc;
+    }
+
+    .desktop-phone {
+      display: block;
     }
 
     .burger {
@@ -227,21 +232,13 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
       .left-block,
-      header > div:not(.mobile-header):not(.mobile-nav) {
+      .desktop-phone {
         display: none;
       }
 
       .mobile-header {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
       }
 
       .burger {
@@ -250,25 +247,6 @@
 
       .mobile-nav.active {
         display: flex;
-      }
-
-      .hero {
-        flex-direction: column;
-      }
-
-      .hero-right {
-        padding: 0;
-      }
-
-      .hero-left,
-      .hero-right {
-        width: 100%;
-        text-align: center;
-      }
-
-      .hero-right h2 {
-        font-size: 18px;
-        line-height: 1.4;
       }
     }
 
@@ -301,6 +279,10 @@
       </nav>
     </div>
 
+    <div class="desktop-phone">
+      <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
+    </div>
+
     <div class="mobile-nav" id="mobileNav">
       <a href="index.html">Головна</a>
       <a href="military.html">Військове Право</a>
@@ -312,7 +294,7 @@
   <section class="hero">
     <div class="hero-left">
       <div class="title-top">Адвокат</div>
-      <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/photo_2025-05-06_11-54-42.webp" alt="Адвокат"/>
+      <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/photo_2025-05-06_11-54-42.webp" alt="Адвокат" />
       <div class="name">Лісовой Роман Олегович</div>
     </div>
     <div class="hero-right">
@@ -325,7 +307,7 @@
         <form id="tg-form">
           <input type="text" id="name" placeholder="Ваше ім'я" required />
           <input type="tel" id="phone" placeholder="Ваш номер телефону" required />
-          <textarea id="message" rows="4" placeholder="Ваше запитання" required></textarea>
+          <textarea id="message" rows="4" style="resize: none;" placeholder="Ваше запитання" required></textarea>
           <button class="button" type="submit">Надіслати</button>
         </form>
       </div>
@@ -347,7 +329,7 @@
       nav.classList.toggle('active');
     }
 
-    document.getElementById('tg-form').addEventListener('submit', function(e) {
+    document.getElementById('tg-form').addEventListener('submit', function (e) {
       e.preventDefault();
 
       const data = {
