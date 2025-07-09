@@ -6,6 +6,10 @@
   <title>Адвокат Роман Олегович</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -15,6 +19,7 @@
       font-family: 'Fira Sans Condensed', sans-serif;
       background: #f9f9f9;
       color: #000;
+      overflow-x: hidden;
     }
 
     header {
@@ -65,7 +70,6 @@
       width: 100%;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: nowrap;
       padding: 10px 15px;
     }
 
@@ -274,6 +278,14 @@
 
       .hero-right {
         padding: 0;
+      }
+
+      .form-container,
+      input,
+      textarea,
+      button {
+        width: 100%;
+        max-width: 100%;
       }
     }
 
