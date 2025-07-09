@@ -1,25 +1,10 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N234XDB7');</script>
-<!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Житлові Питання</title>
+  <title>Адвокат Роман Олегович</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;700&display=swap" rel="stylesheet"/>
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]function(){(c[a].q=c[a].q[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "sc8mu3662d");
-</script>
-
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -38,14 +23,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     header {
-      background: #000;
-      color: #fff;
-      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 20px;
+      background: #000;
+      color: white;
       flex-wrap: wrap;
-      animation: fadeIn 1s ease-in-out;
+    }
+
+    .logo {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .main-nav {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .main-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .main-nav a:hover {
+      color: #ccc;
+    }
+
+    .phone {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      white-space: nowrap;
     }
 
     a[href^="tel:"] {
@@ -54,60 +71,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight: bold;
     }
 
-    .left-block {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    nav {
-      display: flex;
-      gap: 10px;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #ccc;
-    }
-
-    .burger {
-      display: none;
-      font-size: 24px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: #fff;
-    }
-
     .mobile-header {
       display: none;
       width: 100%;
       justify-content: space-between;
       align-items: center;
       padding: 10px 15px;
+      background: #000;
     }
 
-    .mobile-header strong {
-      flex: 1;
-      white-space: nowrap;
+    .mobile-logo {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
     }
 
-    .mobile-header .mobile-phone {
-      flex: 1;
+    .mobile-logo img {
+      height: 36px;
+    }
+
+    .mobile-phone {
+      flex: 1 1 auto;
       text-align: center;
-      white-space: nowrap;
+      font-weight: bold;
     }
 
-    .mobile-header .burger {
-      flex: 1;
-      text-align: right;
+    .mobile-phone a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .burger {
+      flex: 0 0 auto;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
     }
 
     .mobile-nav {
@@ -125,69 +126,147 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       text-decoration: none;
     }
 
-    .container {
+    .mobile-nav.active {
+      display: flex;
+    }
+
+    .hero {
       display: flex;
       flex-wrap: wrap;
       max-width: 1200px;
-      margin: 20px auto;
+      margin: 25px auto;
       padding: 20px;
       background: #fff;
       border-radius: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    .photo {
+    .hero-left {
       flex: 1;
-      min-width: 250px;
-      margin-right: 30px;
-    }
-
-    .photo img {
-      width: 100%;
-      border-radius: 20px;
-    }
-
-    .content {
-      flex: 2;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
     }
 
-    .text-block {
-      margin-bottom: 20px;
-      font-size: 18px;
-      line-height: 1.5;
+    .hero-left .title-top {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .hero-left img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-left img:hover {
+      transform: scale(1.05);
+    }
+
+    .hero-left .name {
+      font-weight: 700;
+      font-size: 24px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .hero-right {
+      flex: 1;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-right h2 {
+      margin-top: 0;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
     }
 
     .button-row {
-      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 10px 0 20px 0;
     }
 
     .button {
       display: inline-block;
+      padding: 10px 20px;
       background: #000;
       color: white;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-weight: bold;
       text-decoration: none;
+      border-radius: 5px;
       border: none;
-      font-size: 16px;
       transition: background 0.3s ease;
-      min-width: 240px;
-      text-align: center;
     }
 
     .button:hover {
       background: #333;
     }
 
+    .outline-button {
+      background: none;
+      color: black;
+      border: 2px solid #000;
+    }
+
+    .outline-button:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #000;
+      outline: none;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
       background: #eee;
-      margin-top: 50px;
+      margin-top: 25px;
+    }
+
+    #about {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 40px 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    #about h2 {
+      margin-top: 0;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    #about p {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     @media (max-width: 768px) {
@@ -196,7 +275,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         align-items: stretch;
       }
 
-      .left-block, nav, header > div:not(.mobile-header):not(.mobile-nav) {
+      .logo, .main-nav, .phone {
         display: none;
       }
 
@@ -204,56 +283,77 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         display: flex;
       }
 
-      .burger {
-        display: block;
-      }
-
-      .mobile-nav.active {
-        display: flex;
-      }
-
-      .container {
+      .hero {
         flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        text-align: center;
       }
 
-      .photo {
-        margin-right: 0;
-        margin-bottom: 20px;
+      .hero-left, .hero-right {
+        flex: 1 1 100%;
+        max-width: 100%;
+        padding: 0;
       }
 
-      .button {
+      .hero-left img {
+        max-width: 80%;
+        height: auto;
+      }
+
+      .hero-left .title-top {
+        font-size: 22px;
+        margin-top: 10px;
+      }
+
+      .hero-left .name {
+        font-size: 20px;
+        margin-top: 10px;
+      }
+
+      .hero-right h2 {
+        font-size: 18px;
+        margin-top: 20px;
+      }
+
+      .button-row {
+        justify-content: center;
+      }
+
+      .button, .outline-button {
         width: 100%;
-        min-width: unset;
-        box-sizing: border-box;
-        padding: 14px 16px;
+        max-width: 250px;
+        margin: 5px auto;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N234XDB7"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
   <header>
     <div class="mobile-header">
-      <a href="index.html"><img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/logo.png" alt="Логотип" style="height: 40px;"></a>
-      <div class="mobile-phone"><a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a></div>
+      <div class="mobile-logo">
+        <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/logo.png" alt="Логотип">
+      </div>
+      <div class="mobile-phone">
+        <a href="tel:+380673285137">+38 (067) 328 51 37</a>
+      </div>
       <button class="burger" onclick="toggleMenu()">☰</button>
     </div>
 
-    <div class="left-block">
-      <a href="index.html"><img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/logo.png" alt="Логотип" style="height: 40px;"></a>
-      <nav>
-        <a href="index.html">Головна</a>
-        <a href="military.html">Військове Право</a>
-        <a href="divorce.html">Розлучення</a>
-        <a href="real_estate.html">Житлові Питання</a>
-      </nav>
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/logo.png" alt="Логотип" style="height: 40px;">
     </div>
 
-    <div>
-      <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
+    <nav class="main-nav">
+      <a href="index.html">Головна</a>
+      <a href="military.html">Військове Право</a>
+      <a href="divorce.html">Розлучення</a>
+      <a href="real_estate.html">Житлові Питання</a>
+    </nav>
+
+    <div class="phone">
+      <a href="tel:+380673285137">+38 (067) 328 51 37</a>
     </div>
 
     <div class="mobile-nav" id="mobileNav">
@@ -264,21 +364,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </header>
 
-  <section class="container">
-    <div class="photo">
-      <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/estate.jpg" alt="Адвокат з житлових питань">
+  <section class="hero">
+    <div class="hero-left">
+      <div class="title-top">Адвокат</div>
+      <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/photo_2025-05-06_11-54-42.webp" alt="Адвокат">
+      <div class="name">Лісовой Роман Олегович</div>
     </div>
-    <div class="content">
-      <div class="text-block">
-        <strong>Адвокат з питань нерухомості та житлових справ</strong>
-      </div>
-      <div class="button-row">
-        <a href="tel:+380673285137" class="button"><b>Терміновий виклик адвоката<br>+38 (067) 328 51 37</b></a>
-      </div>
-      <div class="text-block">
-        Адвокат по питаннях нерухомості допоможе вирішити складні житлові спори, надати правову підтримку у питаннях купівлі-продажу квартири, оскарження угод з нерухомістю, оформлення документів на власність, а також при залитті квартири чи виселенні. Консультація адвоката по житлових питаннях — це надійна юридична підтримка у будь-якій ситуації
+    <div class="hero-right">
+      <h2>Досвідчений адвокат із глибокими знаннями у сфері кримінального, цивільного та адміністративного права. Гарантує професійний захист прав і представництво інтересів клієнтів у судах.</h2>
+      <div class="form-container">
+        <div class="button-row">
+          <a href="tel:+380673285137" class="button"><b>Зателефонувати</b></a>
+          <a href="#about" class="button outline-button">Про мене</a>
+        </div>
+        <form id="tg-form">
+          <input type="text" id="name" placeholder="Ваше ім'я" required>
+          <input type="tel" id="phone" placeholder="Ваш номер телефону" required>
+          <textarea id="message" rows="4" placeholder="Ваше запитання" required></textarea>
+          <button class="button" type="submit">Надіслати</button>
+        </form>
       </div>
     </div>
+  </section>
+
+  <section id="about">
+    <h2>Про мене</h2>
+    <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат із понад 20-річною практикою у захисті прав та інтересів клієнтів у кримінальних, цивільних, адміністративних та господарських справах.</p>
   </section>
 
   <footer>
@@ -290,6 +401,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const nav = document.getElementById('mobileNav');
       nav.classList.toggle('active');
     }
+
+    document.getElementById('tg-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value
+      };
+      fetch('https://tg-bot-2p2j.onrender.com/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(res => {
+        if (res.ok) {
+          alert('Повідомлення надіслано!');
+          document.getElementById('tg-form').reset();
+        } else {
+          alert('Сталася помилка при надсиланні.');
+        }
+      })
+      .catch(error => {
+        alert('Помилка сервера: ' + error);
+      });
+    });
   </script>
 </body>
 </html>
