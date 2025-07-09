@@ -6,141 +6,131 @@
   <title>Адвокат Роман Олегович</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: 'Fira Sans Condensed', sans-serif;
       background: #f9f9f9;
       color: #000;
     }
-
     header {
       background: #000;
       color: #fff;
-      padding: 15px 20px;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      animation: fadeIn 1s ease-in-out;
       position: relative;
     }
-
-    .logo {
-      font-weight: bold;
-    }
-
-    .nav-links {
+    .left-block {
       display: flex;
+      align-items: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
-
-    .nav-links a {
+    nav {
+      display: flex;
+      gap: 10px;
+    }
+    nav a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
-
-    .phone {
-      color: #fff;
-      font-weight: bold;
+    nav a:hover {
+      color: #ccc;
     }
-
+    .mobile-header {
+      display: none;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mobile-header .center-phone {
+      margin: 0 auto;
+      text-align: center;
+    }
     .burger {
       display: none;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
     }
-
     .burger div {
       width: 25px;
       height: 3px;
       background-color: #fff;
     }
-
-    .mobile-menu {
+    .mobile-nav {
       display: none;
       flex-direction: column;
-      gap: 10px;
       background: #000;
-      padding: 15px;
       position: absolute;
+      top: 100%;
       right: 0;
-      top: 60px;
       width: 100%;
+      z-index: 1000;
     }
-
-    .mobile-menu a {
+    .mobile-nav a {
       color: #fff;
+      padding: 10px;
       text-decoration: none;
-      font-weight: bold;
+      border-top: 1px solid #333;
     }
-
+    .mobile-nav.show {
+      display: flex;
+    }
     @media (max-width: 768px) {
       header {
-        flex-wrap: nowrap;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: stretch;
       }
-      .nav-links {
+      .left-block, nav, .desktop-phone {
         display: none;
       }
-      .burger {
+      .mobile-header {
         display: flex;
       }
-      .header-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-      }
-      .logo {
-        flex: 1;
-        text-align: left;
-      }
-      .phone {
-        flex: 1;
-        text-align: center;
-        font-size: 14px;
-      }
       .burger {
-        flex: 1;
-        align-items: flex-end;
+        display: flex;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="header-container">
-      <div class="logo">Логотип</div>
-      <div class="phone">+38 (067) 328 51 37</div>
-      <div class="burger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+    <div class="left-block">
+      <strong>Логотип</strong>
+      <nav>
+        <a href="index.html">Головна</a>
+        <a href="military.html">Військове Право</a>
+        <a href="divorce.html">Розлучення</a>
+        <a href="real_estate.html">Житлові Питання</a>
+      </nav>
+    </div>
+    <div class="desktop-phone">
+      <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
+    </div>
+    <div class="mobile-header">
+      <strong>Логотип</strong>
+      <div class="center-phone">
+        <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
+      </div>
+      <div class="burger" onclick="document.querySelector('.mobile-nav').classList.toggle('show')">
+        <div></div><div></div><div></div>
       </div>
     </div>
-    <nav class="nav-links">
-      <a href="index.html">Головна</a>
-      <a href="military.html">Військове Право</a>
-      <a href="divorce.html">Розлучення</a>
-      <a href="real_estate.html">Житлові Питання</a>
-    </nav>
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-nav">
       <a href="index.html">Головна</a>
       <a href="military.html">Військове Право</a>
       <a href="divorce.html">Розлучення</a>
       <a href="real_estate.html">Житлові Питання</a>
     </div>
   </header>
-
-  <!-- інший контент сайту нижче -->
-
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    }
-  </script>
 </body>
 </html>
