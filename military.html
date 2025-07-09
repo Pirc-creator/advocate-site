@@ -105,7 +105,7 @@
       padding: 20px;
       background: #fff;
       border-radius: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-sizing: border-box;
     }
 
     .photo {
@@ -134,6 +134,7 @@
 
     .button-row {
       margin-bottom: 20px;
+      width: 100%;
     }
 
     .button {
@@ -147,19 +148,12 @@
       border: none;
       font-size: 16px;
       transition: background 0.3s ease;
-      min-width: 240px;
-      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .button:hover {
       background: #333;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #eee;
-      margin-top: 50px;
     }
 
     @media (max-width: 768px) {
@@ -181,6 +175,7 @@
 
       .container {
         flex-direction: column;
+        padding: 10px;
       }
 
       .photo {
@@ -194,12 +189,15 @@
 
       .button {
         width: 100%;
+        min-width: unset;
+        box-sizing: border-box;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Мобільний хедер -->
   <header>
     <div class="mobile-header">
       <strong>Логотип</strong>
@@ -229,6 +227,7 @@
     </div>
   </header>
 
+  <!-- Контент -->
   <section class="container">
     <div class="photo">
       <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/tck.jpg" alt="">
@@ -238,7 +237,7 @@
         <strong>Військовий адвокат: консультація та допомога призовникам</strong>
       </div>
       <div class="button-row">
-        <a href="tel:+380673285137" class="button"><b>Терміновий виклик адвоката<br>+38 (067) 328 51 37</b></a>
+        <a href="tel:+380673285137" class="button"><b>Терміновий виклик адвоката<br>+38 (067) 328 51 37 </b></a>
       </div>
       <div class="text-block">
         Адвокат у військкомат — юридична допомога призовникам та військовослужбовцям. Військовий адвокат онлайн і по телефону. Консультація військового юриста по військовому праву, житловим питанням, призову в армію. Супровід у військкомат, юридична консультація з військового права, послуги військового адвоката. Юридична допомога військовим, військовослужбовцям та призовникам. Гарантована допомога юриста по військовим справам. Консультація військового адвоката онлайн та гаряча лінія військового юриста. Юридичні консультації призовникам, консультація по призову в армію, юридична підтримка у складних ситуаціях.
