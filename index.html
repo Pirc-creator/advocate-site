@@ -9,12 +9,14 @@
     html {
       scroll-behavior: smooth;
     }
+
     body {
       margin: 0;
       font-family: 'Fira Sans Condensed', sans-serif;
       background: #f9f9f9;
       color: #000;
     }
+
     header {
       background: #000;
       color: #fff;
@@ -24,86 +26,249 @@
       align-items: center;
       flex-wrap: wrap;
       animation: fadeIn 1s ease-in-out;
-      position: relative;
     }
+
     .left-block {
       display: flex;
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
     }
+
     nav {
       display: flex;
       gap: 10px;
     }
+
     nav a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s ease;
     }
+
     nav a:hover {
       color: #ccc;
     }
+
+    .burger {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #fff;
+    }
+
     .mobile-header {
       display: none;
       width: 100%;
       justify-content: space-between;
       align-items: center;
     }
-    .mobile-header .center-phone {
-      margin: 0 auto;
-      text-align: center;
-    }
-    .burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-    .burger div {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-    }
+
     .mobile-nav {
       display: none;
       flex-direction: column;
       background: #000;
-      position: absolute;
-      top: 100%;
-      right: 0;
       width: 100%;
-      z-index: 1000;
+      padding: 10px 0;
     }
+
     .mobile-nav a {
-      color: #fff;
+      color: white;
+      text-align: center;
       padding: 10px;
       text-decoration: none;
-      border-top: 1px solid #333;
     }
-    .mobile-nav.show {
+
+    .hero {
       display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: slideUp 1s ease-out;
     }
+
+    .hero-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .hero-left .title-top {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .hero-left img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-left img:hover {
+      transform: scale(1.05);
+    }
+
+    .hero-left .name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .hero-right {
+      flex: 1;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 1.4s ease-in-out;
+    }
+
+    .hero-right h2 {
+      margin-top: 0;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 10px 0 20px 0;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #000;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: #333;
+    }
+
+    .outline-button {
+      background: none;
+      color: black;
+      border: 2px solid #000;
+    }
+
+    .outline-button:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #000;
+      outline: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eee;
+      margin-top: 50px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    #about {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 40px 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: slideUp 1s ease-out;
+    }
+
+    #about h2 {
+      margin-top: 0;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    #about p {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
     @media (max-width: 768px) {
       header {
         flex-direction: column;
         align-items: stretch;
       }
-      .left-block, nav, .desktop-phone {
+
+      .left-block, nav {
         display: none;
       }
+
       .mobile-header {
         display: flex;
       }
+
       .burger {
+        display: block;
+      }
+
+      .mobile-nav.active {
         display: flex;
       }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <header>
+    <div class="mobile-header">
+      <strong>Логотип</strong>
+      <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
+      <button class="burger" onclick="toggleMenu()">☰</button>
+    </div>
+
     <div class="left-block">
       <strong>Логотип</strong>
       <nav>
@@ -113,24 +278,83 @@
         <a href="real_estate.html">Житлові Питання</a>
       </nav>
     </div>
-    <div class="desktop-phone">
+
+    <div>
       <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
     </div>
-    <div class="mobile-header">
-      <strong>Логотип</strong>
-      <div class="center-phone">
-        <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
-      </div>
-      <div class="burger" onclick="document.querySelector('.mobile-nav').classList.toggle('show')">
-        <div></div><div></div><div></div>
-      </div>
-    </div>
-    <div class="mobile-nav">
+
+    <div class="mobile-nav" id="mobileNav">
       <a href="index.html">Головна</a>
       <a href="military.html">Військове Право</a>
       <a href="divorce.html">Розлучення</a>
       <a href="real_estate.html">Житлові Питання</a>
     </div>
   </header>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="title-top">Адвокат</div>
+      <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/photo_2025-05-06_11-54-42.webp" alt="Адвокат">
+      <div class="name">Лісовой Роман Олегович</div>
+    </div>
+    <div class="hero-right">
+      <h2>Досвідчений адвокат із глибокими знаннями у сфері кримінального, цивільного та адміністративного права. Гарантує професійний захист прав і представництво інтересів клієнтів у судах.</h2>
+      <div class="form-container">
+        <div class="button-row">
+          <a href="tel:+380673285137" class="button"><b>Зателефонувати</b></a>
+          <a href="#about" class="button outline-button">Про мене</a>
+        </div>
+        <form id="tg-form">
+          <input type="text" id="name" placeholder="Ваше ім'я" required>
+          <input type="tel" id="phone" placeholder="Ваш номер телефону" required>
+          <textarea id="message" rows="4" style="resize: none;" placeholder="Ваше запитання" required></textarea>
+          <button class="button" type="submit">Надіслати</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>Про мене</h2>
+    <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат із понад 20-річною практикою у захисті прав та інтересів клієнтів у кримінальних, цивільних, адміністративних та господарських справах.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Адвокат Лісовой Роман Олегович. Усі права захищено.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('active');
+    }
+
+    document.getElementById('tg-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value
+      };
+
+      fetch('https://tg-bot-2p2j.onrender.com/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(res => {
+        if (res.ok) {
+          alert('Повідомлення надіслано!');
+          document.getElementById('tg-form').reset();
+        } else {
+          alert('Сталася помилка при надсиланні.');
+        }
+      })
+      .catch(error => {
+        alert('Помилка сервера: ' + error);
+      });
+    });
+  </script>
 </body>
 </html>
