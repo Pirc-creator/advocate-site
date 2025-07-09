@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>Нерухомість</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Житлові Питання</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Fira Sans Condensed', sans-serif;
       background: #f9f9f9;
       color: #000;
     }
 
-    /* ===== HEADER ===== */
     header {
       background: #000;
       color: #fff;
@@ -20,17 +20,24 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
+      flex-wrap: wrap;
     }
 
     .left-block {
       display: flex;
       align-items: center;
       gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     nav a {
       color: #fff;
-      margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
     }
@@ -42,12 +49,59 @@
       font-size: 16px;
     }
 
-    /* ===== MAIN SECTION ===== */
+    .burger {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .mobile-header {
+      display: none;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+    }
+
+    .mobile-header strong {
+      flex: 1;
+      white-space: nowrap;
+    }
+
+    .mobile-header .mobile-phone {
+      flex: 1;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .mobile-header .burger {
+      flex: 1;
+      text-align: right;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #000;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .mobile-nav a {
+      color: white;
+      text-align: center;
+      padding: 10px;
+      text-decoration: none;
+    }
+
     .container {
       display: flex;
       flex-wrap: wrap;
       max-width: 1200px;
-      margin: 40px auto;
+      margin: 20px auto;
       padding: 20px;
       background: #fff;
       border-radius: 20px;
@@ -78,56 +132,80 @@
       line-height: 1.5;
     }
 
-    .urgent-block {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .button-row {
       margin-bottom: 20px;
     }
 
-    .urgent-block .label {
+    .button {
+      display: inline-block;
       background: #000;
-      color: #fff;
-      padding: 10px 15px;
+      color: white;
+      padding: 12px 24px;
       border-radius: 10px;
       font-weight: bold;
+      text-decoration: none;
+      border: none;
+      font-size: 16px;
+      transition: background 0.3s ease;
+      min-width: 240px;
+      text-align: center;
     }
 
-    .urgent-block .phone-button {
-      background: #fff;
-      border: 2px solid #000;
-      padding: 10px 15px;
-      border-radius: 10px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      color: #000;
+    .button:hover {
+      background: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eee;
+      margin-top: 50px;
     }
 
     @media (max-width: 768px) {
+      .left-block, nav, header > div:not(.mobile-header):not(.mobile-nav) {
+        display: none;
+      }
+
+      .mobile-header {
+        display: flex;
+      }
+
+      .burger {
+        display: block;
+      }
+
+      .mobile-nav.active {
+        display: flex;
+      }
+
       .container {
         flex-direction: column;
       }
+
       .photo {
         margin-right: 0;
         margin-bottom: 20px;
       }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-      .left-block {
-        flex-direction: column;
-        align-items: flex-start;
+
+      .button {
+        width: 100%;
+        min-width: unset;
+        box-sizing: border-box;
+        padding: 14px 16px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header (ідентичний головній) -->
   <header>
+    <div class="mobile-header">
+      <strong>Логотип</strong>
+      <div class="mobile-phone"><a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a></div>
+      <button class="burger" onclick="toggleMenu()">☰</button>
+    </div>
+
     <div class="left-block">
       <strong>Логотип</strong>
       <nav>
@@ -137,30 +215,45 @@
         <a href="real_estate.html">Житлові Питання</a>
       </nav>
     </div>
+
     <div class="right-block">
-      <a href="tel:+380673285137" class="button"><b>+38 (067) 328 51 37</b></a>
+      <a href="tel:+380673285137">+38 (067) 328 51 37</a>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Головна</a>
+      <a href="military.html">Військове Право</a>
+      <a href="divorce.html">Розлучення</a>
+      <a href="real_estate.html">Житлові Питання</a>
     </div>
   </header>
 
-  <!-- Main block -->
   <section class="container">
     <div class="photo">
-      <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/estate.jpg" alt="">
+      <img src="https://raw.githubusercontent.com/Pirc-creator/advocate-site/refs/heads/main/estate.jpg" alt="Адвокат з житлових питань">
     </div>
     <div class="content">
       <div class="text-block">
-        <strong>Лаконічний, читабельний заголовок</strong><br>
-        Тут може бути короткий опис суті справ або послуг.
+        <strong>Адвокат з житлових питань: оренда, власність, спори</strong>
       </div>
-      <div class="urgent-block">
-        <div class="label">Для термінових викликів</div>
-        <a class="phone-button" href="tel:+380673285137">+38 (067) 328 51 37</a>
+      <div class="button-row">
+        <a href="tel:+380673285137" class="button"><b>Терміновий виклик адвоката<br>+38 (067) 328 51 37</b></a>
       </div>
       <div class="text-block">
-        Додаткова інформація про досвід або типи справ, які ведуться. Наприклад: кримінальні, цивільні, господарські.
+        Юридична допомога у вирішенні житлових спорів, визнання права власності, оформлення нерухомості, виселення, оренда, купівля-продаж. Консультації адвоката у питаннях спадщини, прописки та співвласності. Оформлення документів і супровід справ у судах — надійно і конфіденційно.
       </div>
     </div>
   </section>
 
+  <footer>
+    &copy; 2025 Адвокат Лісовой Роман Олегович. Усі права захищено.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
