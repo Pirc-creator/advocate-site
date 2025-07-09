@@ -6,62 +6,69 @@
   <title>Житлові Питання</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Fira Sans Condensed', sans-serif;
       background: #f9f9f9;
       color: #000;
+      overflow-x: hidden;
     }
 
     header {
       background: #000;
       color: #fff;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
       flex-wrap: wrap;
+      animation: fadeIn 1s ease-in-out;
     }
-    a[href^="tel:"] {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
 
+    a[href^="tel:"] {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
     .left-block {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
     nav {
       display: flex;
       gap: 10px;
-      flex-wrap: wrap;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
-    .right-block a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
+    nav a:hover {
+      color: #ccc;
     }
 
     .burger {
       display: none;
       font-size: 24px;
+      cursor: pointer;
       background: none;
       border: none;
       color: #fff;
-      cursor: pointer;
     }
 
     .mobile-header {
@@ -169,6 +176,11 @@
     }
 
     @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
       .left-block, nav, header > div:not(.mobile-header):not(.mobile-nav) {
         display: none;
       }
@@ -221,8 +233,8 @@
       </nav>
     </div>
 
-    <div class="right-block">
-      <a href="tel:+380673285137">+38 (067) 328 51 37</a>
+    <div>
+      <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
     </div>
 
     <div class="mobile-nav" id="mobileNav">
