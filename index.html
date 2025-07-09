@@ -25,88 +25,31 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    .header-content {
+    .left-block {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      width: 100%;
-    }
-
-    .logo {
-      font-weight: bold;
-      color: #fff;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     nav {
       display: flex;
-      gap: 15px;
+      flex-wrap: wrap;
     }
 
     nav a {
       color: #fff;
+      margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
-    .phone {
-      color: #fff;
-    }
-
-    .burger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .burger div {
-      width: 25px;
-      height: 3px;
-      background-color: white;
-    }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background: #000;
-      padding: 10px;
-    }
-
-    .mobile-menu a {
-      color: white;
-      padding: 5px 0;
-      text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-      .header-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .burger {
-        display: flex;
-      }
-
-      .phone {
-        text-align: center;
-        flex: 1;
-      }
-
-      .mobile-menu {
-        display: none;
-      }
-
-      .mobile-menu.active {
-        display: flex;
-      }
+    nav a:hover {
+      color: #ccc;
     }
 
     .hero {
@@ -118,6 +61,7 @@
       background: #fff;
       border-radius: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: slideUp 1s ease-out;
     }
 
     .hero-left {
@@ -126,6 +70,7 @@
       flex-direction: column;
       align-items: center;
       margin-bottom: 20px;
+      animation: fadeIn 1.2s ease-in-out;
     }
 
     .hero-left .title-top {
@@ -138,6 +83,11 @@
       width: 100%;
       max-width: 300px;
       border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-left img:hover {
+      transform: scale(1.05);
     }
 
     .hero-left .name {
@@ -145,6 +95,7 @@
       font-weight: bold;
       margin-top: 10px;
       text-align: center;
+      width: 100%;
     }
 
     .hero-right {
@@ -152,11 +103,18 @@
       padding: 0 20px;
       display: flex;
       flex-direction: column;
+      animation: fadeIn 1.4s ease-in-out;
+    }
+
+    .hero-right h2 {
+      margin-top: 0;
     }
 
     .form-container {
       display: flex;
       flex-direction: column;
+      align-items: stretch;
+      width: 100%;
     }
 
     .button-row {
@@ -167,12 +125,18 @@
     }
 
     .button {
+      display: inline-block;
       padding: 10px 20px;
       background: #000;
       color: white;
       text-decoration: none;
       border-radius: 5px;
       border: none;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: #333;
     }
 
     .outline-button {
@@ -181,12 +145,29 @@
       border: 2px solid #000;
     }
 
+    .outline-button:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    form {
+      margin-top: 0;
+      width: 100%;
+    }
+
     input, textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
       border-radius: 5px;
       border: 1px solid #ccc;
+      font-size: 16px;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #000;
+      outline: none;
     }
 
     footer {
@@ -194,36 +175,94 @@
       padding: 20px;
       background: #eee;
       margin-top: 50px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    #about {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 40px 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: slideUp 1s ease-out;
+    }
+
+    #about h2 {
+      margin-top: 0;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    #about p {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .left-block {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .phone-number {
+        order: -1;
+        margin-bottom: 10px;
+      }
+
+      .hero {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .hero-right {
+        padding: 0;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="header-content">
-      <div class="logo">Логотип</div>
-
-      <div class="phone"><a href="tel:+380673285137" style="color: #fff; text-decoration: none;">+38 (067) 328 51 37</a></div>
-
-      <div class="burger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+    <div class="left-block">
+      <strong>Логотип</strong>
+      <nav>
+        <a href="index.html">Головна</a>
+        <a href="military.html">Військове Право</a>
+        <a href="divorce.html">Розлучення</a>
+        <a href="real_estate.html">Житлові Питання</a>
+      </nav>
     </div>
-
-    <nav class="mobile-menu" id="mobileMenu">
-      <a href="index.html">Головна</a>
-      <a href="military.html">Військове Право</a>
-      <a href="divorce.html">Розлучення</a>
-      <a href="real_estate.html">Житлові Питання</a>
-    </nav>
-
-    <nav class="desktop-menu">
-      <a href="index.html">Головна</a>
-      <a href="military.html">Військове Право</a>
-      <a href="divorce.html">Розлучення</a>
-      <a href="real_estate.html">Житлові Питання</a>
-    </nav>
+    <div class="phone-number">
+      <a href="tel:+380673285137" style="color: #fff;">+38 (067) 328 51 37</a>
+    </div>
   </header>
 
   <section class="hero">
@@ -251,7 +290,7 @@
 
   <section id="about">
     <h2>Про мене</h2>
-    <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат із понад 20-річною практикою у захисті прав та інтересів клієнтів у кримінальних, цивільних, адміністративних та господарських справах.</p>
+    <p>Мене звати Лісовой Роман Олегович. Я — досвідчений адвокат із понад 20-річною практикою у захисті прав та інтересів клієнтів у кримінальних, цивільних, адміністративних та господарських справах. Моя мета — надавати ефективну, чесну і зрозумілу юридичну допомогу, яка базується на професіоналізмі та довірі.</p>
   </section>
 
   <footer>
@@ -259,10 +298,6 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById("mobileMenu").classList.toggle("active");
-    }
-
     document.getElementById('tg-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
